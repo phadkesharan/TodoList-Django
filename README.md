@@ -6,7 +6,7 @@ Simple Todo list made using Django
 
 ### python version - 3.8 or higher
 
-    https://www.python.org/downloads
+https://www.python.org/downloads
 
 ### Django - install using pip
 
@@ -20,4 +20,4 @@ Simple Todo list made using Django
 
 ### Django Documentation
 
-    https://www.djangoproject.com/
+https://www.djangoproject.com/
