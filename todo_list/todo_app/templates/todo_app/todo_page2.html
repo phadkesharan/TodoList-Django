@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>this is todo page!!</h1>
+    <h2>enter todo items </h2>
+
+    <ul>
+        {%for item in all_items %}
+            <li>
+                {{item.content}}
+                <form action="remove_item/{{item.id}}/" method="POST"
+                style="display: inline;">{% csrf_token %}
+                    <input type="submit" value='check item' name='delete'>
+                </form>
+            </li>
+        {%endfor%}
+    </ul>
+
+    <form action="add_item/" method="POST">{% csrf_token %}
+        <input type='text' name='content'> 
+        <input type='submit' value="Add items">
+    </form>
+</body>
+</html>

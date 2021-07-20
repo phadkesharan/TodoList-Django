@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Todo list</title>
+  </head>
+  <body>
+      <div class='container'>
+          <h1>Todo-List</h1>
+
+          <ul class="list-group">
+
+            {%for item in all_items%}
+
+            <li class="list-group-item" aria-current="true">
+                <form class="row g-3" action="remove_item/{{item.id}}/" method="POST">{% csrf_token %}
+                    <div>
+                        <label>
+                          {{item.content}}
+                        </label>
+                        <button type="submit" class="btn btn-primary" name='delete'>check item</button>
+                    </div>
+                </form>
+            </li>
+            {%endfor%}
+          </ul>
+
+          <hr>
+          <h3>Enter your tasks</h3>
+          <form class="row g-3" action="add_item/" method="POST">{% csrf_token %}
+            <div class="col-auto">
+              <label for="inputPassword2" class="visually-hidden">enter item</label>
+              <input type="text" class="form-control" id="inputPassword2" placeholder="your item" name='content'>
+            </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary mb-3">Add item</button>
+            </div>
+          </form>
+
+      </div>
+  </body>
+</html>
