@@ -10,7 +10,12 @@ https://www.python.org/downloads
 
 ### Django - install using pip
 
+    pip install Django
 
-pip install Django
+## instructions for running 
+
+### start development server 
+
+    python todo_list/manage.py runserver
 
 
